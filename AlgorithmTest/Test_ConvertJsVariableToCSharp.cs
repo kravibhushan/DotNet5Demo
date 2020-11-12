@@ -2,7 +2,7 @@
 
 namespace AlgorithmTest
 {
-    public class TestLogic
+    public class Test_ConvertJsVariableToCSharp
     {
         [Fact]
         public void IsPrime_InputIs1_ReturnFalse()
