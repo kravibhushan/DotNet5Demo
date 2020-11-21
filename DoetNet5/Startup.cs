@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,19 @@ namespace DotNet5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //http://localhost:25718/api/v2.0/default/1
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+                //config.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                //config.ApiVersionReader = new QueryStringApiVersionReader("v");
+                config.ApiVersionReader = new Microsoft.AspNetCore.Mvc.Versioning.UrlSegmentApiVersionReader();
+            });
+
+            //This section of code is added for the memory cache.
+            services.AddMemoryCache();
             //This section of code is added for the Distributed chaching using sql server 
             services.AddDistributedSqlServerCache(options =>
             {

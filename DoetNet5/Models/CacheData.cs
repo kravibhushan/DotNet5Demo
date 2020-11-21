@@ -11,12 +11,10 @@ namespace DotNet5.Models
     public class CacheData 
     {
         private readonly IDistributedCache _cache;
-
         public CacheData(IDistributedCache cache)
         {
             _cache = cache;
         }
-
         public string CachedTimeUTC { get; set; }
 
         public async Task OnGetAsync()
