@@ -1,6 +1,7 @@
 ﻿using DotNet5.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,17 @@ namespace DotNet5.Controllers
     [ApiVersion("2.0")]
     public class EmployeeController : ControllerBase
     {
+        private readonly ILogger<EmployeeController> _logger;
+        public EmployeeController(ILogger<EmployeeController> logger)
+        {
+            _logger = logger;
+        }
         //Version 1.0 is with employee address
         [MapToApiVersion("1.0")]
         public async Task<List<Employee>> Get()
         {
             List<Employee> lstEmployee = new List<Employee>();
-            lstEmployee = lstEmployee.Select(x=> new Employee { EmpId=x.EmpId,LastName=x.LastName,FirstName=x.FirstName} ).ToList();
+            lstEmployee = lstEmployee.Select(x => new Employee { EmpId = x.EmpId, LastName = x.LastName, FirstName = x.FirstName }).ToList();
             return lstEmployee;
         }
 
