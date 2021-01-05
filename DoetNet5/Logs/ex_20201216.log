@@ -1,0 +1,27 @@
+2020-12-16T08:57:42.0656515+05:30 [FTL] (Microsoft.Extensions.Hosting.Internal.ApplicationLifetime) An error occurred starting the application
+System.AggregateException: One or more errors occurred. (Format of the initialization string does not conform to specification starting at index 0.)
+ ---> System.ArgumentException: Format of the initialization string does not conform to specification starting at index 0.
+   at Microsoft.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   at Microsoft.Data.Common.DbConnectionOptions.ParseInternal(Dictionary`2 parsetable, String connectionString, Boolean buildChain, Dictionary`2 synonyms, Boolean firstKey)
+   at Microsoft.Data.Common.DbConnectionOptions..ctor(String connectionString, Dictionary`2 synonyms)
+   at Microsoft.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   at Microsoft.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at Microsoft.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   at Microsoft.Extensions.Caching.SqlServer.DatabaseOperations.SetCacheItem(String key, Byte[] value, DistributedCacheEntryOptions options)
+   at Microsoft.Extensions.Caching.SqlServer.SqlServerCache.Set(String key, Byte[] value, DistributedCacheEntryOptions options)
+   at DotNet5.Startup.<>c__DisplayClass5_0.<Configure>b__1() in E:\Git Repo\DotNet5Demo\DoetNet5\Startup.cs:line 93
+   at System.Threading.CancellationToken.<>c.<.cctor>b__26_0(Object obj)
+   at System.Threading.CancellationTokenSource.CallbackNode.<>c.<ExecuteCallback>b__9_0(Object s)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.CancellationTokenSource.CallbackNode.ExecuteCallback()
+   at System.Threading.CancellationTokenSource.ExecuteCallbackHandlers(Boolean throwOnFirstException)
+   --- End of inner exception stack trace ---
+   at System.Threading.CancellationTokenSource.ExecuteCallbackHandlers(Boolean throwOnFirstException)
+   at System.Threading.CancellationTokenSource.NotifyCancellation(Boolean throwOnFirstException)
+   at System.Threading.CancellationTokenSource.Cancel(Boolean throwOnFirstException)
+   at Microsoft.Extensions.Hosting.Internal.ApplicationLifetime.NotifyStarted()

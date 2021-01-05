@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Caching.Distributed;
@@ -49,6 +50,9 @@ namespace DotNet5
                 options.SchemaName = "dbo";
                 options.TableName = "TestCache";
             });
+            //For security Identity framework
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            // .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +71,8 @@ namespace DotNet5
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            //For autharization
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();

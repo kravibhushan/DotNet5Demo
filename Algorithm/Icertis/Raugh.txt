@@ -1,0 +1,5 @@
+CMM level 5
+total strength:- 2,500
+Pf:- 3,600
+Variable Pf:- 12% of Basic
+TL
