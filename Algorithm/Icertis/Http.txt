@@ -1,0 +1,24 @@
+Http
+
+https://www.youtube.com/watch?v=SibDOMOnY0A&list=PLLhsXdvz0qjI68a8tLUUMyXmNhl608mcn&index=18&ab_channel=UXTrendz
+Watch from 19 onwards
+Response code 
+Get 
+put  
+post
+delete
+patch
+
+
+How to do Single sign in in dot net core
+Azure List to remember for interview
+ServerLess
+Key vault
+Storage (blob and Quee)
+BLob types Upload stream and code snipit
+Azure web Job
+Hosting on Dotnet core
+Cosmos Db
+Server scaling (Ram , Processor scalling)
+
+stratgic design pattern pattern
