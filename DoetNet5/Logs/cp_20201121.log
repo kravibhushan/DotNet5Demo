@@ -1,0 +1,10 @@
+2020-11-21T22:01:13.6876936+05:30 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2020-11-21T22:01:13.8146528+05:30 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2020-11-21T22:01:13.8156450+05:30 [INF] (Microsoft.Hosting.Lifetime) Content root path: "E:\Git Apps\DotNet5Demo\DoetNet5"
+2020-11-21T22:01:14.0411871+05:30 [INF] (DotNet5.Controllers.ValuesController) Writing to log file with INFORMATION severity level.
+2020-11-21T22:01:14.0548915+05:30 [DBG] (DotNet5.Controllers.ValuesController) Writing to log file with DEBUG severity level.
+2020-11-21T22:11:10.3798377+05:30 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2020-11-21T22:11:10.9244698+05:30 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2020-11-21T22:11:10.9254688+05:30 [INF] (Microsoft.Hosting.Lifetime) Content root path: "E:\Git Apps\DotNet5Demo\DoetNet5"
+2020-11-21T22:11:14.5037859+05:30 [INF] (DotNet5.Controllers.ValuesController) Writing to log file with INFORMATION severity level.
+2020-11-21T22:11:14.5055202+05:30 [DBG] (DotNet5.Controllers.ValuesController) Writing to log file with DEBUG severity level.
