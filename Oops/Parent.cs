@@ -8,14 +8,17 @@ namespace Oops
         public int Id { get; }
         static Parent()
         {
-            WriteLine("From static parent Constructor");
+            WriteLine("Static constructor Parent");
         }
         public Parent(int id)
         {
             Id = id;
             WriteLine("From overloaded parent Constructor");
         }
+        ~Parent()
+        {
+            WriteLine("Parent Disctructor");
+        }
 
-        
     }
 }
