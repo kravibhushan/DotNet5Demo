@@ -22,6 +22,8 @@ namespace DotNet5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             services.AddControllersWithViews();
             //http://localhost:25718/api/v2.0/default/1
             services.AddApiVersioning(config =>
@@ -47,15 +49,27 @@ namespace DotNet5
             //For security Identity framework
             //services.AddIdentity<IdentityUser, IdentityRole>()
             // .AddEntityFrameworkStores<AppDbContext>();
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Core Api", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             IHostApplicationLifetime lifetime, IDistributedCache cache)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("v1/swagger.json", "MyAPI V1");
+                });
             }
             else
             {
@@ -82,10 +96,12 @@ namespace DotNet5
             {
                 var currentTimeUTC = DateTime.UtcNow.ToString();
                 byte[] encodedCurrentTimeUTC = Encoding.UTF8.GetBytes(currentTimeUTC);
-                var options = new DistributedCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromSeconds(20));
-                cache.Set("cachedTimeUTC", encodedCurrentTimeUTC, options);
+
+                //var options = new DistributedCacheEntryOptions()
+                //    .SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                //cache.Set("cachedTimeUTC", encodedCurrentTimeUTC, options);
             });
+
         }
     }
 }

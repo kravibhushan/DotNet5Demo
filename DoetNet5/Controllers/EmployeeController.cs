@@ -26,6 +26,7 @@ namespace DotNet5.Controllers
         public async Task<List<Employee>> Get()
         {
             List<Employee> lstEmployee = new List<Employee>();
+            lstEmployee.Add(new Employee() {EmpId=1,FirstName="Ravi Bhushan",LastName="Kumar",Addresses=new List<Address>() });
             lstEmployee = lstEmployee.Select(x => new Employee { EmpId = x.EmpId, LastName = x.LastName, FirstName = x.FirstName }).ToList();
             return lstEmployee;
         }
