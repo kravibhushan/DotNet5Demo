@@ -1,8 +1,6 @@
 ﻿using DotNet5.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +24,7 @@ namespace DotNet5.Controllers
         public async Task<List<Employee>> Get()
         {
             List<Employee> lstEmployee = new List<Employee>();
+            lstEmployee.Add(new Employee() {EmpId=1,FirstName="Ravi Bhushan",LastName="Kumar",Addresses=new List<Address>() });
             lstEmployee = lstEmployee.Select(x => new Employee { EmpId = x.EmpId, LastName = x.LastName, FirstName = x.FirstName }).ToList();
             return lstEmployee;
         }
